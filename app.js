@@ -18,6 +18,7 @@ const pmEl = document.querySelector('.pm');
 const decimalEl = document.querySelector('.decimal');
 const equalEl = document.querySelector('.equal');
 
+const number0El = document.querySelector('.number-0');
 const number1El = document.querySelector('.number-1');
 const number2El = document.querySelector('.number-2');
 const number3El = document.querySelector('.number-3');
@@ -27,21 +28,21 @@ const number6El = document.querySelector('.number-6');
 const number7El = document.querySelector('.number-7');
 const number8El = document.querySelector('.number-8');
 const number9El = document.querySelector('.number-9');
-const number0El = document.querySelector('.number-0');
+
 const numberElArray = [
-  number1El, number2El, number3El, number4El, number5El, number6El, number7El, number8El, number9El, number0El
+  number0El, number1El, number2El, number3El, number4El, number5El, number6El, number7El, number8El, number9El,
 ];
 
 
 // Functions
-const getValueAsStr = () => return valueEl.textContent.split(',').join('');
+const getValueAsStr = () => valueEl.textContent.split(',').join('');
 
 const getValueAsNum = () => {
   return parseFloat(getValueAsStr());
 };
 
 const setStrAsValue = (valueStr) => {
-  if (valueStr[valueStr.length - 1] == '.') {
+  if (valueStr[valueStr.length - 1] === '.') {
     valueEl.textContent += '.';
     return;
   }
@@ -50,7 +51,7 @@ const setStrAsValue = (valueStr) => {
   if (decimalStr) {
     valueEl.textContent = parseFloat(wholeNumStr).toLocaleString() + '.' + decimalStr;
   } else {
-    vlueEl.textContent = parseFloat(wholeNumStr).toLocaleString();
+    valueEl.textContent = parseFloat(wholeNumStr).toLocaleString();
   }
 };
 
